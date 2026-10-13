@@ -3,7 +3,7 @@
  * Plugin Name:       VilloCity Suite
  * Plugin URI:        https://github.com/brockett-creative/villocity-suite
  * Description:       Modular community-site toolkit from Brockett Creative Group. Turn individual modules on or off per site.
- * Version:           3.0.0-dev
+ * Version:           0.0.1
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Author:            Brockett Creative Group, Inc.
@@ -19,7 +19,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Keep this in sync with the "Version:" header above. CI refuses to release if they differ.
-define( 'VILLOCITY_VERSION', '3.0.0-dev' );
+define( 'VILLOCITY_VERSION', '0.0.1' );
 define( 'VILLOCITY_FILE', __FILE__ );
 define( 'VILLOCITY_DIR', plugin_dir_path( __FILE__ ) );
 define( 'VILLOCITY_URL', plugin_dir_url( __FILE__ ) );

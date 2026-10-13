@@ -63,7 +63,7 @@ final class AdminMenu {
 		$enabled = Plugin::instance()->modules()->enabled_ids();
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'VilloCity Settings', 'villocity-suite' ); ?></h1>
+			<h1><?php esc_html_e( 'VilloCity Settings (dev test!!!)', 'villocity-suite' ); ?></h1>
 
 			<p>
 				<?php

@@ -1,0 +1,17 @@
+# Dependencies (installed by `composer install`; the release zip bundles them)
+/vendor/
+
+# Build output
+/build/
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local env
+.env
+.wp-env.override.json

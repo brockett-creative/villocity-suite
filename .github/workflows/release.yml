@@ -1,0 +1,44 @@
+# Push a tag like v3.1.0 and this builds villocity-suite.zip and publishes a GitHub
+# Release with it attached. Every site running the plugin then sees "update available"
+# within ~12 hours (or immediately via "Check for updates" on the Plugins screen).
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          tools: composer:v2
+
+      - name: Build zip (fails if the tag and plugin version disagree)
+        run: bash bin/build-zip.sh "${GITHUB_REF_NAME}"
+
+      - name: Extract this version's notes from CHANGELOG.md
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v v="$version" '
+            $0 ~ "^## \\[?" v "\\]?" {found=1; next}
+            found && /^## / {exit}
+            found {print}
+          ' CHANGELOG.md > build/notes.md
+          [ -s build/notes.md ] || echo "Release ${GITHUB_REF_NAME}" > build/notes.md
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/villocity-suite.zip
+          body_path: build/notes.md
+          # Tags with a hyphen (v3.1.0-beta.1) become pre-releases, which sites ignore.
+          prerelease: ${{ contains(github.ref_name, '-') }}

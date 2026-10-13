@@ -1,0 +1,30 @@
+{
+	"name": "brockett-creative/villocity-suite",
+	"description": "Modular community-site toolkit for WordPress.",
+	"type": "wordpress-plugin",
+	"license": "proprietary",
+	"require": {
+		"php": ">=8.1",
+		"yahnis-elsts/plugin-update-checker": "^5.6"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "8.1"
+		},
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"lint": "find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l",
+		"cs": "phpcs",
+		"cs:fix": "phpcbf",
+		"build": "bash bin/build-zip.sh"
+	}
+}

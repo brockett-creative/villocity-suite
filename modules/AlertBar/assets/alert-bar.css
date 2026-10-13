@@ -1,0 +1,97 @@
+/* VilloCity Alert Bar. Colours come from --voc-* variables printed by Branding. */
+.voc-alert-bar {
+	--voc-alert-bg: var(--voc-primary, #860038);
+	--voc-alert-fg: #fff;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 10px 52px 10px 20px;
+	background: var(--voc-alert-bg);
+	color: var(--voc-alert-fg);
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.voc-alert-bar--warning {
+	--voc-alert-bg: #b45309; /* 4.5:1+ contrast with white */
+}
+
+.voc-alert-bar--critical {
+	--voc-alert-bg: #b91c1c;
+}
+
+.voc-alert-bar[hidden] {
+	display: none;
+}
+
+.voc-alert-bar__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 8px 14px;
+	max-width: 1100px;
+}
+
+.voc-alert-bar__text {
+	margin: 0;
+	color: inherit;
+}
+
+.voc-alert-bar__text a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.voc-alert-bar .voc-icon {
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+}
+
+.voc-alert-bar__button {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 14px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.18);
+	color: inherit;
+	font-size: 0.8125rem;
+	text-decoration: none;
+}
+
+.voc-alert-bar__button:hover,
+.voc-alert-bar__button:focus-visible {
+	background: rgba(255, 255, 255, 0.35);
+	color: inherit;
+}
+
+.voc-alert-bar__dismiss {
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	transform: translateY(-50%);
+}
+
+.voc-alert-bar__dismiss:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.voc-alert-bar a:focus-visible,
+.voc-alert-bar__dismiss:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}

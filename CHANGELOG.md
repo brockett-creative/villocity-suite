@@ -2,6 +2,10 @@
 
 All notable changes to VilloCity Suite. The release workflow copies the section for each tag into the GitHub Release notes, which WordPress shows in "View version details".
 
+## [0.0.2]
+
+- Test release to confirm automatic updates.
+
 ## [0.0.1]
 
 Ground-up rebuild of the 2.x plugin.
